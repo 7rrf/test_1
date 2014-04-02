@@ -1,0 +1,408 @@
+<% title "DLR" %> <!-- Set Spicific Title !-->
+<% if admin_signed_in? %>
+
+<script type="text/javascript">
+var isOn = false;
+$(function(){
+  $('.sidemennu').css({'display': 'none'})
+$('#sidemennubutton').click(function(){
+  $('.sidemennu').toggle();
+    console.log(isOn);
+    if (isOn){
+      isOn = false;
+      $('.settingcontent').removeClass("col-md-10 col-md-push-2");
+      $("#sidemennubutton").removeClass("col-md-push-2");
+      
+    } else {
+      isOn = true;
+      $("#sidemennubutton").addClass("col-md-push-2");
+      $('.settingcontent').addClass("col-md-10 col-md-push-2") 
+      
+    }
+});
+
+$("#slideshow1, #parent1").hover(function(){
+  $("#parent1").css({opacity: 1.0});
+  },function(){
+  $("#parent1").css({opacity: 0.5});
+  });
+
+$("#Marketing").hover(function(){
+  $("#parent2, #parent3, #parent4" ).css({opacity: 1.0});
+  },function(){
+  $("#parent2, #parent3, #parent4").css({opacity: 0.5});
+  });
+
+$("#Marketing1, #parent2").hover(function(){
+  $("#parent2").css({opacity: 1.0});
+  },function(){
+  $("#parent2").css({opacity: 0.5});
+  });
+
+$("#Marketing2, #parent3").hover(function(){
+  $("#parent3").css({opacity: 1.0});
+  },function(){
+  $("#parent3").css({opacity: 0.5});
+  });
+
+$("#Marketing3, #parent4").hover(function(){
+  $("#parent4").css({opacity: 1.0});
+  },function(){
+  $("#parent4").css({opacity: 0.5});
+  });
+
+});
+
+$(function (){
+  $("#popoverSlide").popover({ trigger: "hover" });
+});
+
+$(function (){
+  $("#popoverMarketing").popover({ trigger: "hover" });
+});
+
+</script>
+
+<!-- ################################## SIDEMENU ############################################-->
+
+<div class="hidesettingshelper visible-lg visible-md">
+  <div class="sidemennu">
+    <div class="col-md-2 SettingsHelper" style="position: fixed; z-index: 2">
+      <div class="wrap" style="color:white;">
+        <h3 style="margin-top:5%; text-align:center !important;">Settings <i class="glyphicon glyphicon-edit" style="font-size: 19px;"></i></h3>
+        <div class="well" style="background:#1b8aba !important; border-color:#187ba5 !important; margin-top:5% !important; width:100% important!; text-align:none !important;">
+          <!-- SLIDESHOW 1 SETTINGS -->
+          <div id="slideshow1" style="text-align:center; color: #333;">
+            <div id="popoverSlide" data-content="The photo height needs to be 1/3 of the width. Ex.1500x500. " rel="popover" data-placement="right">
+              <div style="color: white;">
+              <h4>Slideshow</h4>
+              <h5>Photo</h5>
+              <h5>Title</h5>
+              <h5>Paragraph</h5>
+            </div>
+          </div>
+                <%= link_to edit_setting_path(Setting.find(1)) do %>
+                  <p class="btn custumbtn" style="color:white">1</p>
+                  <% end %> 
+                <%= link_to edit_setting_path(Setting.find(2)) do %>
+                  <p class="btn custumbtn" style="color:white">2</p>
+                  <% end %>
+                  <%= link_to edit_setting_path(Setting.find(3)) do %>
+                  <p class="btn custumbtn" style="color:white">3</p>
+                  <% end %>
+          </div>
+          <hr style="border-color:#187ba5;"></hr>
+          <!-- MARKETING 1 SETTINGS -->
+          <div id="Marketing" style="text-align:center; color: #333;">
+            <div id="popoverMarketing" data-content="The photo height needs to be 1/3 of the width. Ex.1500x500. " rel="popover" data-placement="right">
+              <div style="color: white;">
+              <h4>Marketing</h4>
+              <h5>Photo</h5>
+              <h5>Title</h5>
+              <h5>Paragraph</h5> 
+            </div> 
+          </div>
+        </div>
+          <div id="Marketing-links" style="text-align:center;">
+                <%= link_to edit_setting_path(Setting.find(4)) do %>
+                  <p class="btn custumbtn" id="Marketing1" style="color:white">1</p>
+                <% end %>
+                <%= link_to edit_setting_path(Setting.find(5)) do %>
+                  <p class="btn custumbtn" id="Marketing2" style="color:white">2</p>
+                <% end %>
+                <%= link_to edit_setting_path(Setting.find(6)) do %>
+                  <p class="btn custumbtn" id="Marketing3" style="color:white">3</p>
+                <% end %>
+          </div>     
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ################################## SIDEMENU END #########################################-->
+
+<!-- SidemenuButton-->
+<div class="visible-lg visible-md">
+  <div id="sidemennubutton"href="#" class="btn btn-info" style="position: fixed; z-index: 1">
+    <p style="color:white;"><i class="glyphicon glyphicon-align-left"></i></p>
+  </div>
+</div>
+<!-- SidemenuButton End-->
+
+<div class="settingcontent">
+  <section id="parent1" class="parent">
+    <div id="myCarousel" class="carousel slide carousel-fade">
+      <!-- Slideshow -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+      <div class="item active">
+        <%= link_to Setting.find(1) do %>
+        <!-- Link to slideshow img 1 # Must be 1500 x 500 pxls-->
+        <% setting = Setting.find(1)%>
+        <%= image_tag setting.photo.url%>
+        <div class="container">
+          <div class="carousel-caption">
+            <!-- Slideshow title 1 fixed for bigger screen devices-->
+            <h1  class="visible-lg visible-md" style="float:left; margin-top: -17%; margin-left: -20%; font-size: 60px;"> <% setting = Setting.find(1)%><%= setting.title %></h1>
+            <!-- Slideshow title 1 fixed for smaller screen devices (mobile)-->
+            <h1  class="visible-xs" style="float:left; margin-top: -60%; margin-left: -20%;"> <% setting = Setting.find(1)%><%= setting.title %></h1>
+            <!-- Slideshow text 1 -->
+            <% setting = Setting.find(1)%>
+            <h3 class="visible-lg visible-md" style="margin-left: -10%; float:left; margin-top: -8%; opacity: 0.9;"> 
+            <%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+            </h3>
+            <!-- Slideshow button 1 -->
+          </div>
+        </div>
+        <% end %> 
+      </div>
+      <div class="item">
+        <%= link_to Setting.find(2) do %>
+        <!-- Link to slideshow img 2 # Must be 1500 x 500 pxls-->
+        <% setting = Setting.find(2)%> 
+        <%= image_tag setting.photo.url%>
+        <div class="container">
+          <div class="carousel-caption">
+            <!-- Slideshow title 1 fixed for bigger screen devices-->
+            <h1  class="visible-lg visible-md" style="float:left; margin-top: -17%; margin-left: -20%; font-size: 60px;"> <% setting = Setting.find(2)%><%= setting.title %></h1>
+            <!-- Slideshow title 1 fixed for smaller screen devices (mobile)-->
+            <h1  class="visible-xs" style="float:left; margin-top: -60%; margin-left: -20%;"> <% setting = Setting.find(2)%><%= setting.title %></h1>
+            <!-- Slideshow text 2-->
+            <% setting = Setting.find(2)%>
+            <h3 class="visible-lg visible-md" style="margin-left: -10%; float:left; margin-top: -8%; opacity: 0.9;">
+              <%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+            </h3>
+            <!-- Slideshow button 2-->
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="item">
+        <%= link_to Setting.find(3) do %>
+        <!-- Link to slideshow img 3 # Must be 1500 x 500 pxls-->
+        <% setting = Setting.find(3)%>
+        <%= image_tag setting.photo.url%>
+        <div class="container">
+          <div class="carousel-caption">
+            <!-- Slideshow title 1 fixed for bigger screen devices-->
+            <h1  class="visible-lg visible-md" style="float:left; margin-top: -17%; margin-left: -20%; font-size: 60px;"> <% setting = Setting.find(3)%><%= setting.title %></h1>
+            <!-- Slideshow title 1 fixed for smaller screen devices (mobile)-->
+            <h1  class="visible-xs" style="float:left; margin-top: -60%; margin-left: -20%;"> <% setting = Setting.find(3)%><%= setting.title %></h1>
+            <!-- Slideshow text 3-->
+            <% setting = Setting.find(3)%>
+            <h3 class="visible-lg visible-md" style="margin-left: -10%; float:left; margin-top: -8%; opacity: 0.9;">
+              <%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+            </h3>
+            <!-- Slideshow button 3-->
+          </div>
+        </div>
+        <% end %>
+      </div>
+      </div>
+      <!-- Slideshow controls -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+    </div>
+<!-- /.carousel-end -->
+  </section>
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+
+  <div class="container" style="width:auto; height:auto;">
+    <div class="marketing">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <section id="parent2" class="parent">
+        <div class="col-md-4 text-center span4">
+          <!-- Text colum img link 1-->
+          <% setting = Setting.find(4)%>
+          <%= image_tag setting.photo.url, :class => "image-size2 img-circle"%>
+          <!-- Text colum title 1-->
+          <% setting = Setting.find(4)%>
+          <h2><%= setting.title %></h2>
+          <!-- Text colum text 1-->
+          <% setting = Setting.find(4)%>
+          <p><%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %></p>
+          <!-- Text colum button 1-->
+            <%= link_to 'View Details', Setting.find(4), :class => "btn btn-primary", :style => "margin-bottom: 20px;" %>
+        </div>
+      </section>
+   <hr class="visible-xs" style="border-color: rgba(51,51,51,0.3);"></hr>
+      <section id="parent3" class="parent">
+        <div class="col-md-4 text-center">
+          <!-- Text colum img link 2-->
+          <% setting = Setting.find(5)%>
+          <%= image_tag setting.photo.url, :class => "image-size2 img-circle"%>
+           <!-- Text colum title 2-->
+          <% setting = Setting.find(5)%>
+            <h2><%= setting.title %></h2>
+          <!-- Text colum text 2-->
+          <% setting = Setting.find(5)%>
+            <p><%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %></p>
+          <!-- Text colum button 2-->
+          <%= link_to 'View Details', Setting.find(5), :class => "btn btn-primary", :style => "margin-bottom: 20px;" %>
+        </div>
+      </section>
+      <hr class="visible-xs" style="border-color: rgba(51,51,51,0.3);"></hr>
+      <section id="parent4" class="parent">
+        <div class="col-md-4 text-center span4">
+          <!-- Text colum img link 3-->
+          <% setting = Setting.find(6)%>
+          <%= image_tag setting.photo.url, :class => "image-size2 img-circle"%>
+          <!-- Text colum title 3-->
+          <% setting = Setting.find(6)%>
+            <h2><%= setting.title %></h2>
+          <!-- Text colum text 3-->
+          <% setting = Setting.find(6)%>
+            <p><%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe%></p>
+          <!-- Text colum button 3-->
+          <%= link_to 'View Details', Setting.find(6), :class => "btn btn-primary" %>
+          <br /><br /><br /><br />
+        </div>
+      </section>
+    </div><!-- /.row -->
+  </div>
+</div>
+</div>
+<!--############################################## END ADMIN       ################################################ -->
+
+<% else %>
+
+<div id="myCarousel" class="carousel slide carousel-fade">
+      <!-- Slideshow -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+      <div class="item active">
+         <%= link_to Setting.find(1) do %>
+        <!-- Link to slideshow img 1 # Must be 1500 x 500 pxls-->
+        <% setting = Setting.find(1)%>
+        <%= image_tag setting.photo.url%>
+        <div class="container">
+          <div class="carousel-caption">
+            <!-- Slideshow title 1 fixed for bigger screen devices-->
+            <h1  class="visible-lg visible-md" style="float:left; margin-top: -17%; margin-left: -20%; font-size: 60px;"> <% setting = Setting.find(1)%><%= setting.title %></h1>
+            <!-- Slideshow title 1 fixed for smaller screen devices (mobile)-->
+            <h1  class="visible-xs" style="float:left; margin-top: -60%; margin-left: -20%;"> <% setting = Setting.find(1)%><%= setting.title %></h1>
+            <!-- Slideshow text 1 -->
+            <% setting = Setting.find(1)%>
+            <h3 class="visible-lg visible-md" style="margin-left: -10%; float:left; margin-top: -8%; opacity: 0.9;"> 
+            <%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+            </h3>
+            <!-- Slideshow button 1 -->
+          </div>
+        </div>
+        <% end %> 
+      </div>
+      <div class="item">
+        <%= link_to Setting.find(2) do %>
+        <!-- Link to slideshow img 2 # Must be 1500 x 500 pxls-->
+        <% setting = Setting.find(2)%> 
+        <%= image_tag setting.photo.url%>
+        <div class="container">
+          <div class="carousel-caption">
+             <!-- Slideshow title 1 fixed for bigger screen devices-->
+            <h1  class="visible-lg visible-md" style="float:left; margin-top: -17%; margin-left: -20%; font-size: 60px;"> <% setting = Setting.find(2)%><%= setting.title %></h1>
+            <!-- Slideshow title 1 fixed for smaller screen devices (mobile)-->
+            <h1  class="visible-xs" style="float:left; margin-top: -60%; margin-left: -20%;"> <% setting = Setting.find(2)%><%= setting.title %></h1>
+            <!-- Slideshow text 2-->
+            <% setting = Setting.find(2)%>
+            <h3 class="visible-lg visible-md" style="margin-left: -10%; float:left; margin-top: -8%; opacity: 0.9;">
+              <%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+            </h3>
+            <!-- Slideshow button 2-->
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="item">
+        <%= link_to Setting.find(3) do %>
+        <!-- Link to slideshow img 3 # Must be 1500 x 500 pxls-->
+        <% setting = Setting.find(3)%>
+        <%= image_tag setting.photo.url%>
+        <div class="container">
+          <div class="carousel-caption">
+             <!-- Slideshow title 1 fixed for bigger screen devices-->
+            <h1 class="visible-lg visible-md" style="float:left; margin-top: -17%; margin-left: -20%; font-size: 60px;"> <% setting = Setting.find(3)%><%= setting.title %></h1>
+            <!-- Slideshow title 1 fixed for smaller screen devices (mobile)-->
+            <h1  class="visible-xs" style="float:left; margin-top: -60%; margin-left: -20%;"> <% setting = Setting.find(3)%><%= setting.title %></h1>
+            <!-- Slideshow text 3-->
+            <% setting = Setting.find(3)%>
+            <h3 class="visible-lg visible-md" style="margin-left: -10%; float:left; margin-top: -8%; opacity: 0.9;">
+              <%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+            </h3>
+            <!-- Slideshow button 3-->
+          </div>
+        </div>
+        <% end %>
+      </div>
+      </div>
+      <!-- Slideshow controls -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+    </div>
+<!-- /.carousel-end -->
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-md-4 text-center span4">
+          <!-- Text colum img link 1-->
+          <% setting = Setting.find(4)%>
+          <%= image_tag setting.photo.url, :class => "image-size2 img-circle"%>
+          <!-- Text colum title 1-->
+          <% setting = Setting.find(4)%>
+          <h2><%= setting.title %></h2>
+          <!-- Text colum text 1-->
+          <% setting = Setting.find(4)%>
+          <p><%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %></p>
+          <!-- Text colum button 1-->
+          <%= link_to 'View Details', Setting.find(4), :class => "btn btn-primary", :style => "margin-bottom: 20px;"  %>
+        </div>
+        <hr class="visible-xs" style="border-color: rgba(51,51,51,0.3);"></hr>
+    <div class="col-md-4 text-center span4">
+          <!-- Text colum img link 1-->
+          <% setting = Setting.find(5)%>
+          <%= image_tag setting.photo.url, :class => "image-size2 img-circle"%>
+          <!-- Text colum title 1-->
+          <% setting = Setting.find(5)%>
+          <h2><%= setting.title %></h2>
+          <!-- Text colum text 1-->
+          <% setting = Setting.find(5)%>
+          <p><%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %></p>
+          <!-- Text colum button 1-->
+          <%= link_to 'View Details', Setting.find(5), :class => "btn btn-primary", :style => "margin-bottom: 20px;"  %>
+        </div>
+        <hr class="visible-xs" style="border-color: rgba(51,51,51,0.3);"></hr>
+    <div class="col-md-4 text-center span4">
+          <!-- Text colum img link 1-->
+          <% setting = Setting.find(6)%>
+          <%= image_tag setting.photo.url, :class => "image-size2 img-circle"%>
+          <!-- Text colum title 1-->
+          <% setting = Setting.find(6)%>
+          <h2><%= setting.title %></h2>
+          <!-- Text colum text 1-->
+          <% setting = Setting.find(6)%>
+          <p><%= setting.description.html_safe.gsub(/\r\n?/,"<br/>").html_safe %></p>
+          <!-- Text colum button 1-->
+          <%= link_to 'View Details', Setting.find(6), :class => "btn btn-primary" %>
+          <br /><br /><br /><br />
+        </div>
+  </div><!-- /.row -->
+</div>
+<% end %>

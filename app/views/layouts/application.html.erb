@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head> <!-- Reserved for SEO keywords-->
+    <title><%= yield(:title) %></title> <!-- Page title -->
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <%= csrf_meta_tags %>
+  </head>
+
+                                          <!-- Navigation bar -->
+    <!-- =========================================================================================== -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <!-- Navbar content gets grouped together for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'DLR', root_path, :class => 'navbar-brand a', :style => 'color: white;' %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to ' Home', pages_home_path %></li>
+        <li><%= link_to 'News', pages_news_path %></li>
+        <li><%= link_to 'Projects', projects_path %></li>
+        <li><%= link_to 'About', pages_about_path %></li>
+        <li><%= link_to 'Contact', pages_contact_path %></li>
+      </ul>
+
+      <!--+++++++++++++++++++++++++++++++++ MOBILE NAV +++++++++++++++++++++++++++++++++++++++++++++-->
+
+      <ul class="nav navbar-nav navbar-right visible-xs">
+        <li>
+          <% if admin_signed_in? %>
+          <%= link_to "Sign Out", destroy_admin_session_path, :method => :delete, :class => "hiho" %>
+          <% else %>
+          <%= link_to "Sign In", new_admin_session_path,  :class => "hiho" %>
+          <% end %>
+        </li>
+        <% if admin_signed_in? %>
+        <% then %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown 
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to " New", new_post_path,  :class =>"glyphicon glyphicon-file" %></li>
+            <li><%= link_to ' Overview', posts_path,  :class =>"glyphicon glyphicon-cog" %></li>
+            <li><%= link_to ' Account', edit_admin_registration_path, :class => "glyphicon glyphicon-user" %> </li>
+            <li><%= link_to ' Settings', settings_path, :class => "glyphicon glyphicon-wrench" %></li>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+
+      <!--+++++++++++++++++++++++++++++++++ MOBILE NAV END +++++++++++++++++++++++++++++++++++++++++-->
+
+      <!--+++++++++++++++++++++++++++++++++ WEB NAVBAR  +++++++++++++++++++++++++++++++++++++++++++++-->
+
+      <ul class="nav navbar-nav navbar-right pull-right hidden-xs">
+        <li>
+          <% if admin_signed_in? %>
+          <%= link_to "Sign Out", destroy_admin_session_path, :method => :delete, :class => "hiho" %>
+          <% else %>
+          <%= link_to "Sign In", new_admin_session_path,  :class => "hiho" %>
+          <% end %>
+        </li>
+        <% if admin_signed_in? %>
+        <% then %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-file"></i>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="presentation" class="dropdown-header">Create</li>
+            <li role="presentation" class="divider"></li>
+            <li><%= link_to " Article", new_post_path,  :class =>"glyphicon glyphicon-file" %></li>
+            <li><%= link_to ' Project', new_project_path,  :class =>"glyphicon glyphicon-bookmark" %></li>
+            <li><%= link_to ' Layout', settings_path, :class => "glyphicon glyphicon-cog" %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-th-list"></i> 
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+             <li role="presentation" class="dropdown-header">Show</li>
+            <li role="presentation" class="divider"></li>
+            <li><%= link_to ' News', posts_path,  :class =>"glyphicon glyphicon-list-alt" %></li>
+            <li><%= link_to ' Projects', projects_path,  :class =>"glyphicon glyphicon-bookmark" %></li>
+            <li><%= link_to ' LayoutSettings', settings_path, :class => "glyphicon glyphicon-cog" %></li>
+            <li><%= link_to ' Account', edit_admin_registration_path, :class => "glyphicon glyphicon-user" %> </li>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+
+      <!--+++++++++++++++++++++++++++++++++ WEB NAVBAR END +++++++++++++++++++++++++++++++++++++++++-->
+
+    </div><!-- /.navbar-collapse -->
+  </nav><!-- Navigation bar end -->
+  <br />
+  <br />
+                                        <!-- Navigation bar ends -->
+  <!-- ============================================================================================= -->
+
+  <!-- Fetching each sites Embedded Ruby(body content)-->
+  <body id="top">
+    <p class="flash"><%= bootstrap_flash %></p>
+    <%= yield %>
+    <!-- carousel javascroipt speed-->
+    <script type='text/javascript'>
+      $(document).ready(function() {
+          $('.carousel').carousel({
+      interval: 4000
+      })
+      });
+
+        $(document).ready(function() {
+                $('.scrollup').click(function(event){
+                    event.preventDefault();
+                    $("html, body").animate({ scrollTop: 0 }, 600);
+                });
+        });
+    </script>
+  </body><!--Body end -->
+
+                                               <!-- Footer -->
+    <!-- =========================================================================================== -->
+  <!--<footer>
+      <div class="copyright" style="text-align: center">
+        <p>&copy; DLR -Verbrennungsteknik 2013 </p>
+      </div>                                         
+  </footer>-->
+                                              <!--Footer end -->
+
+  <!-- fixed bottom arrow-->
+  <div class="scrollup upche" title="Back to Top">
+  <a class="glyphicon glyphicon-chevron-up h3" href="#top"></a>
+  </div>
+</html> <!--End -->
+
+<script type="text/javascript">jwplayer.key="Q/g8ApXOKanGGdZt7ykqRNieQGRB6oElD4qCew=";</script>

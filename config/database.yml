@@ -1,0 +1,24 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: dlrwpvbt_production
+  pool: 5
+  username: jdartland
+  password: 
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: dlrwpvbt_development
+  pool: 5
+  username: jdartland
+  password: 
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: dlrwpvbt_test
+  pool: 5
+  username: jdartland
+  password: 
+

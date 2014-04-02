@@ -1,0 +1,119 @@
+<%= form_for @project, :html => { :multipart => true } do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :title, :class => "h3"%><br>
+    <%= f.text_field :title, :class => "form-control", :placeholder => "Add a Title "%>
+  </div><br />
+  <div class="field">
+  <%= f.label :description, :class => "h3"%><br>
+    <%= f.text_area :description, :class => "form-control", :rows => "5", :placeholder => "Add a Description" %>
+  </div><br />
+<div class="row">
+ <div class="newPaperclipFiles col-md-4 col-md-offset-1" style="overflow: hidden;">
+<h3 style="color:rgb(31,154,207);">Upload a Photo</h3>
+<hr style="margin-left: -20%; width: 280px !important;"></hr>
+        <%= f.fields_for :assets do |asset_photo| %>
+        <% if asset_photo.object.new_record? %>
+        <div class="btn custumbtn btn-xs" id="duplp" onlick="duplicatep()">Add</div>
+            <div id="duplicaterp"> 
+                <%= asset_photo.file_field :photo %>
+            </div>
+            <% end %>
+       <% end %>
+</div>
+<h2 class="col-md-3" style="overflow:hidden; padding-left: 6%;">OR</h2>
+  <div class="newPaperclipFiles col-md-4" style="overflow:hidden; padding-left: 10%;">
+<h3 style="color:rgb(31,154,207);">Upload a Video</h3>
+<hr style="margin-left: -8%; width: 230px !important;"></hr>
+        <%= f.fields_for :assets do |asset_video| %>
+        <% if asset_video.object.new_record? %>
+        <div class="btn custumbtn btn-xs" id="duplv" onlick="duplicatev()">Add</div>
+        <div id="duplicaterv"> 
+            <%= asset_video.file_field :video %>
+        </div>
+            <% end %>
+       <% end %>
+
+  </div>
+</div>
+<div class="row" style="margin-right: auto; margin-left: auto; text-align: center;">
+<div class="thumball" style="margin-top: 5%; margin-bottom: 20px; max-height: 200px;"> 
+    <%= f.fields_for :assets  do |asset| %>
+    <% unless asset.object.new_record? %>
+    <% if asset.object.photo? %>
+      <li class="thumbnail span1 col-md-2" style="border: none;  display: inline-block !important; float: none !important;">
+          <%= image_tag asset.object.photo.url, :style => "min-width: 170px !important; height: 170px !important; margin-bottom: 3%;" %>
+            <%= asset.check_box :_destroy %> <i class="glyphicon glyphicon-trash" style="color: rgb(31,154,207);"></i>
+      </li>
+      <% end %>
+      <% end %>
+    <% end %>    
+  </div>
+</div>
+
+<div class="row" style="margin-right: auto; margin-left: auto; text-align: center;">
+<div class="thumball" style="margin-top: 0%; margin-bottom: 20px; max-height: 200px;"> 
+    <%= f.fields_for :assets  do |asset1| %>
+    <% unless asset1.object.new_record? %>
+    <% if asset1.object.video? %>
+      <li class="thumbnail span1 col-md-2" style="border: none;  display: inline-block !important; float: none !important; ">
+        <div class="centervideo">
+          <%= link_to asset1.object.video.url, class: :popup_link2, target: :_blank do %>
+             <div class="picture2" style="width: 160px; height:160px; background: #234254;"></div>
+        <% end %>
+            <%= asset1.check_box :_destroy %> <i class="glyphicon glyphicon-trash" style="color: rgb(31,154,207);"></i>
+      </li>
+      <% end %>
+      <% end %>
+    <% end %>    
+  </div>
+</div>
+
+<div class"actions" style="margin-top: 5%;">
+  <div class="center">
+    <%= f.submit :class => "btn btn-info" %>
+    <hr></hr>
+    <%= link_to 'Show', @project %> |
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>
+<% end %>
+
+<script type="text/javascript">
+document.getElementById('duplp').onclick = duplicatep;
+
+var i = 0;
+var original = document.getElementById('duplicaterp');
+
+function duplicatep() {
+    var clone = original.cloneNode(true); // "deep" clone
+    clone.id = "duplicaterp" + ++i;
+    // or clone.id = ""; if the divs don't need an ID
+    original.parentNode.appendChild(clone);
+}
+
+</script>
+
+<script type="text/javascript">
+document.getElementById('duplv').onclick = duplicatev;
+
+var x = 0;
+var originalv = document.getElementById('duplicaterv');
+
+function duplicatev() {
+    var clonev = originalv.cloneNode(true); // "deep" clone
+    clonev.id = "duplicaterv" + ++x;
+    // or clone.id = ""; if the divs don't need an ID
+    originalv.parentNode.appendChild(clonev);
+}
+
+</script>

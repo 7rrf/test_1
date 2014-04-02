@@ -1,0 +1,131 @@
+<div class="visible-md visible-lg">
+<% if @setting.photo? %>
+	<div class="center"><p>
+  <%= image_tag @setting.photo.url, :style => 'width:100%; max-height: 500px;'%></p>
+	</div>
+      		
+		<div style="padding-left: 5%; padding-right: 5%;">
+		<h1 class="center" style=" color: white; z-index:2; margin-top: -200px; font-size:500%;">
+		  
+		  <%= @setting.title %>
+		</h1>
+		<div class="form-signin-show">
+		<blockqute>
+				<h3 style="text-align:center; color: rgba(7,88,145,1); opacity: 1;">-
+			  <%= @setting.description %>
+				</h3>
+			</blockqute><br /><br />
+	<div class="form-signin-show">
+			<p>
+			  <%=raw @setting.paragraph.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+			</p>
+		</div>
+	</div>
+</div>
+	<div class="center">
+		<% if admin_signed_in? %>
+		<%= link_to 'Edit', edit_setting_path(@setting) %> |
+		<%= link_to 'Back', settings_path %>
+		<% else %>
+		<%= link_to 'Back', pages_news_path %>
+		<% end %>
+
+	</div>
+
+
+<% else %>
+  		
+	<div style="padding-left: 5%; padding-right: 5%;">
+		<h1 class="center">
+		  <%= @setting.title %>
+		</h1>
+		<div class="form-signin-show">
+		<blockqute>
+				<h4 style="text-align:center; opacity: 1;">-
+			  <%= @setting.description %>
+				</h4>
+			</blockqute>
+			<p>
+			  <%=raw @setting.paragraph.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+			</p>
+	</div>
+	<div class="center">
+		<% if admin_signed_in? %>
+		<%= link_to 'Edit', edit_setting_path(@setting) %> |
+		<%= link_to 'Back', settings_path %>
+		<% else %>
+		<%= link_to 'Back', pages_news_path %>
+		<% end %>
+
+	</div>
+	</div>
+
+<% end %>
+</div> 
+
+<!-- ################################# MOBILE VERSION ################################### -->
+
+<div class="visible-xs">
+	<% if @setting.photo? %>
+	<div class="center"><p>
+      	<%= image_tag @setting.photo.url, :style => 'max-width: 100%;'%> </p>
+	</div>
+	
+	<div style="padding-left: 2%; padding-right: 2%;">
+		<div class="form-signin-show">
+		<h1 class="center" style="color: rgba(7,88,145,1);">
+		  
+		  <%= @setting.title %>
+		</h1>
+		<blockqute>
+				<h3 style="text-align:center; opacity: 0.8;">-
+			  <%= @setting.description %>
+				</h3>
+			</blockqute>
+	<div class="form-signin-show">
+			<p>
+			  <%=raw @setting.paragraph.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+			</p>
+		</div>
+
+</div>
+	<div class="center">
+		<% if admin_signed_in? %>
+		<%= link_to 'Edit', edit_setting_path(@setting) %> |
+		<%= link_to 'Back', settings_path %>
+		<% else %>
+		<%= link_to 'Back', pages_news_path %>
+		<% end %>
+	</div>
+</div>
+<% else %> 		
+	<div style="padding-left: 5%; padding-right: 5%;">
+		<h1 class="center">
+		  <%= @setting.title %>
+		</h1>
+		<div class="form-signin-show">
+		<blockqute>
+				<h4 style="text-align:center; opacity: 1;">-
+			  <%= @setting.description %>
+				</h4>
+			</blockqute>
+			<p>
+			  <%=raw @setting.paragraph.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+			</p>
+	</div>
+	<div class="center">
+		<% if admin_signed_in? %>
+		<%= link_to 'Edit', edit_setting_path(@setting) %> |
+		<%= link_to 'Back', settings_path %>
+		<% else %>
+		<%= link_to 'Back', pages_news_path %>
+		<% end %>
+
+	</div>
+</div>
+
+<% end %>
+</div><br /><br />
+
+
+        	

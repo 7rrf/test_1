@@ -1,0 +1,122 @@
+<div style="padding-left: 5%; padding-right: 5%;">
+
+<h1 style="text-align: center">Home Page Settings</h1>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-sm-1"><h3 style="color: rgb(31,154,207)">Title</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-2"><h3 style="color: rgb(31,154,207)">Description</h3></th>
+      <th class="col-sm-2"><h3 style="color: rgb(31,154,207)">Paragraph</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-1"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @settings.limit(6).offset(0).each do |setting| %>
+
+      <tr>
+          <td><strong><%= setting.title[0..50]%></strong></td>
+          <td></td>
+          <td><%= setting.description[0..50]%>...</td>
+          <td><%= setting.paragraph.capitalize[0..50]%>...</td>
+          <td></td>
+          <td><%= link_to 'Show ', setting,  :class => "btn btn-primary btn-xs" %>
+          <%= link_to 'Edit  ', edit_setting_path(setting), :class => "btn btn-warning btn-xs" %>
+          <%#= link_to 'Destroy', setting, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br />
+<h1 style="text-align: center">About Page Settings</h1>
+
+<div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+      <th class="col-sm-1"><h3 style="color: rgb(31,154,207)">Title</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-2"><h3 style="color: rgb(31,154,207)">Description</h3></th>
+      <th class="col-sm-2"><h3 style="color: rgb(31,154,207)">Paragraph</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-1"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+    <% @settings.limit(3).offset(6).each do |setting| %>
+        <tr>
+
+          <td><strong><%= setting.title[0..50]%></strong></td>
+          <td></td>
+          <td><%= setting.description[0..50]%>...</td>
+          <td><%= setting.paragraph[0..50]%>...</td>
+          <td></td>
+          <td><%= link_to 'Show ', setting,  :class => "btn btn-primary btn-xs" %>
+          <%= link_to 'Edit  ', edit_setting_path(setting), :class => "btn btn-warning btn-xs" %>
+          <%#= link_to 'Destroy', setting, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br />
+<h1 style="text-align: center">Contact Settings</h1>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-sm-1"><h3 style="color: rgb(31,154,207)">Title</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-2"><h3 style="color: rgb(31,154,207)">Description</h3></th>
+      <th class="col-sm-2"><h3 style="color: rgb(31,154,207)">Paragraph</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @settings.limit(3).offset(9).each do |setting| %>
+
+      <tr>
+          <td><strong><%= setting.title[0..50]%></strong></td>
+          <td></td>
+          <td><%= setting.description[0..50]%>...</td>
+          <td><%= setting.paragraph.capitalize[0..50]%>...</td>
+          <td></td>
+          <td><%= link_to 'Show ', setting,  :class => "btn btn-primary btn-xs" %>
+          <%= link_to 'Edit  ', edit_setting_path(setting), :class => "btn btn-warning btn-xs" %>
+          <%#= link_to 'Destroy', setting, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br />
+</div>
+
+<div class="center">
+<div id="popoverNew" class="btn" href="#" data-content="A new setting requiers changes in the code to define where the setting should be displayed." rel="popover" data-placement="top">
+<%= link_to 'New Setting', new_setting_path, :class => "btn btn-info", data: { confirm: "Are you sure that you know what you're doing?" }  %>
+ </div>
+</div>
+<hr></hr>
+<%= link_to 'Back', :back, :style => "margin-left: 5%;"%>
+</div><br /><br />
+
+
+      <script type="text/javascript">
+      $(function (){
+         $("#popoverNew").popover({ trigger: "hover" });
+      });
+
+         $(function (){
+         $("#popoverDelete").popover({ trigger: "hover" });
+      });
+      </script>

@@ -1,0 +1,76 @@
+
+<h1 class="center">Projects</h1>
+<hr></hr>
+
+<div class="visible-lg visible-md" style="padding-left: 6.3%; padding-right: 6.3%;">
+  <div class="row">
+    <% @projects.each do |project| %>
+    <%= link_to project do %>
+	<li class="span1" style="border: none; display: inline-block !important; float: none !important; padding-bottom: 4px !important;">
+	    <span class="roll1">
+	    	<p style="max-height: 160px; max-width: 160px; margin-top: 30% !important; color: white;">
+	    		<%=raw project.title.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+	    	</p>
+	    </span>
+	    <div>
+	    	<%= image_tag project.assets.first.photo.url(:small) %>
+	    </div>
+	</li>
+	<% end %>
+    <% end %>
+  </div>
+  </div>
+
+  <div class="visible-xs" style="margin-left: 25%; margin-right: 20%;">
+  <div class="row">
+    <% @projects.each do |project| %>
+    <%= link_to project do %>
+	<li class="span1" style="border: none; display: inline-block !important; float: none !important; padding-bottom: 4px !important;">
+	    <span class="roll1">
+	    	<p style="max-height: 160px; max-width: 160px; margin-top: 30% !important; color: white;">
+	    		<%=raw project.title.html_safe.gsub(/\r\n?/,"<br/>").html_safe %>
+	    	</p>
+	    </span>
+	    <div>
+	    	<%= image_tag project.assets.first.photo.url(:small) %>
+	    </div>
+	</li>
+	<% end %>
+    <% end %>
+  </div>
+  </div>
+
+<hr></hr>
+<% if admin_signed_in? %>
+<div class="center">
+<%= link_to 'New Project', new_project_path, :class => "btn btn-info" %>
+</div>
+<% end %>
+<!-- JS -->
+<script type="text/javascript">
+$(function() {
+// OPACITY OF BUTTON SET TO 0%
+$(".roll1").css("opacity","0");
+ 
+// ON MOUSE OVER
+$(".roll1").hover(function () {
+ 
+// SET OPACITY TO 70%
+$(this).stop().animate({
+opacity: 1.0
+}, "fast");
+},
+              
+ 
+// ON MOUSE OUT
+function () {
+ 
+// SET OPACITY BACK TO 50%
+$(this).stop().animate({
+opacity: 0
+}, "slow");
+});
+});
+
+
+</script>

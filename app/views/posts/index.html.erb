@@ -1,0 +1,42 @@
+<div style="padding-left: 5%; padding-right: 5%;">
+<h1 style="text-align: center">News</h1><br />
+<div class="table-responsive" style="margin-top: -3%;">
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-1"><h3 style="color: rgb(31,154,207)">Title</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-3"><h3 style="color: rgb(31,154,207)">Content</h3></th>
+      <th class="col-sm-1"></th>
+      <th class="col-sm-1"><h3 style="color: rgb(31,154,207)">Date</h3></th>
+      <th class="col-sm-2"></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.find_each do |post| %>
+      <tr>
+        <td><strong style="color: #333333;"><%= post.title %></strong></td>
+        <td></td>
+        <td><%= post.content.capitalize.split[0..5].join(" ") %>...</td>
+        <td></td>
+        <td><%= post.created_at.strftime("%A %H. %M %p - %B %d %Y ") %></td>
+        <td></td>
+        <td><%= link_to 'Show', post,  :class => "btn btn-primary btn-xs" %>
+          <%= link_to 'Edit', edit_post_path(post), :class => "btn btn-warning btn-xs" %>
+        <%= link_to 'Destroy', post, :class => "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<br>
+<div class="center">
+<%= link_to 'New', new_post_path, :class => "btn btn-info" %>
+</div>
+<hr></hr>
+<%= link_to 'Back', :back, :style => "margin-left: 5%;" %>
+</div><br /><br />

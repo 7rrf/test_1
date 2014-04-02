@@ -1,0 +1,564 @@
+@import "twitter/bootstrap";
+ 
+ /* PAGES */
+.carousel img {
+
+min-width: 100% !important;
+min-height: 290px !important;
+max-height: 500px !important;
+}
+
+ .marketing {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 50px !important;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+.featurette {
+  padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+  overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.featurette img {
+  margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+max-width:512px !important; 
+min-width:200px !important;
+max-height:512px !important;
+min-height:200px !important; 
+
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.featurette-image.pull-left {
+  margin-right: 5% !important;
+}
+.featurette-image.pull-right {
+  margin-left: 5% !important;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+ 
+}
+
+.pull-right-fixed{
+  float: left !important;
+  max-width: 40% !important;
+}
+
+.pull-left-fixed {
+  float: right !important;
+  max-width: 40% !important;
+}
+
+.upche {
+opacity: 0.3;
+text-decoration: none;
+color: #1f9acf;
+position: fixed; 
+bottom:-3px; 
+text-align: center;
+display: block;
+margin:auto;
+left:0;
+right:0;
+}
+.upche:hover {
+
+text-decoration: none;
+background: none;
+background-color: none;
+color:#1f9acf;
+opacity:1.0;
+}
+/* -- News -- Custom styles */
+.thumball {
+
+}
+
+.thumbnail1 {
+  margin-top: none !important;
+  padding-top: none !important;
+  margin-bottom:none !important; 
+  padding-bottom:none !important;
+  border-radius: 0px !important;
+border-color: rgba(31,154,207,0.7) !important;
+}
+
+.thumbnail1:hover {
+background-color: rgba(31,154,207,0.7) !important;
+text-decoration: none !important; 
+}
+
+.thumbnail1:hover .text-muted {
+  color: #fff !important;
+text-decoration: none !important; 
+}
+
+.thumbnail1:hover h2 {
+  color: rgba(7,88,145,1)!important;
+
+}
+
+.thumbnail1:hover p {
+  color: rgba(7,88,145,1)!important;
+
+}
+.thumbnail1 p {
+  color: #333!important;
+
+}
+
+a {
+text-decoration: none !important;
+} 
+
+.form-signin {
+  text-align: center;
+    min-width: 50px;
+    max-width: 200px;
+    padding: 15px;
+        padding-top: 15px;
+        padding-right-value: auto;
+        padding-bottom: 15px;
+        padding-left-value: auto;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+    margin: 0px auto;
+        margin-top: 0px;
+        margin-right-value: auto;
+        margin-bottom: 0px;
+        margin-left-value: auto;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+}
+
+.centervideo {
+    max-width: 640px;
+    padding: 0px;
+        padding-top: 15px;
+        padding-right-value: auto !important;
+        padding-bottom: 15px;
+        padding-left-value: auto !important;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+    margin: 0px auto;
+        margin-top: 0px;
+        margin-right-value: auto !important;
+        margin-bottom: 0px;
+        margin-left-value: auto !important;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+}
+
+.centervideo-xs {
+    max-width: 240px;
+    padding: 0px;
+        padding-top: 0px;
+        padding-right-value: auto !important;
+        padding-bottom: 0px;
+        padding-left-value: auto !important;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+    margin: 0px auto;
+        margin-top: 0px;
+        margin-right-value: auto !important;
+        margin-bottom: 0px;
+        margin-left-value: auto !important;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+}
+
+.form-signin-show {
+    max-width: 700px;
+    padding: 15px;
+        padding-top: 15px;
+        padding-right-value: auto;
+        padding-bottom: 15px;
+        padding-left-value: auto;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+    margin: 0px auto;
+        margin-top: 0px;
+        margin-right-value: auto;
+        margin-bottom: 0px;
+        margin-left-value: auto;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+}
+
+
+.form-signin-layoutSetting {
+    max-width: 95%;
+    padding: 15px !important;
+        padding-top: 15px;
+        padding-right-value: auto !important;
+        padding-bottom: 15px;
+        padding-left-value: auto !important;
+        padding-left-ltr-source: physical !important;
+        padding-left-rtl-source: physical !important;
+        padding-right-ltr-source: physical !important;
+        padding-right-rtl-source: physical !important;
+    margin: 0px auto;
+        margin-top: 0px;
+        margin-right-value: auto;
+        margin-bottom: 0px;
+        margin-left-value: auto;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+}
+.center {
+  text-align: center;
+}
+
+.well p {
+  padding: none;
+text-align: none !important;
+margin-right-value: none;
+margin-left-value: none;
+padding-left-value: none;
+padding-right-value: none;
+}
+
+.SettingsHelper {
+  background: #1f9acf;
+  min-height: 1000px !important;
+  position: relative;
+
+}
+ /* PAGES END*/
+.margin-top {
+  margin-top: 5%;
+}
+
+.white, .white a {
+  color: #fff;
+}
+
+.parent:hover {
+  opacity: 1.0;
+}
+
+
+.parent {
+  opacity: 0.5;
+}
+
+
+
+.image-size {
+  text-align: center;
+    max-width: 70%;
+    padding: 15px;
+        padding-top: 15px;
+        padding-right-value: auto;
+        padding-bottom: 15px;
+        padding-left-value: auto;
+        padding-left-ltr-source: physical;
+        padding-left-rtl-source: physical;
+        padding-right-ltr-source: physical;
+        padding-right-rtl-source: physical;
+    margin: 0px auto;
+        margin-top: 0px;
+        margin-right-value: auto;
+        margin-bottom: 0px;
+        margin-left-value: auto;
+        margin-left-ltr-source: physical;
+        margin-left-rtl-source: physical;
+        margin-right-ltr-source: physical;
+        margin-right-rtl-source: physical;
+}
+
+.image-size2 {
+  width: 140px;
+  height: 140px;
+}
+
+.container img {
+text-align: center;
+display: block;
+margin:auto;
+left:0;
+right:0;
+top:0;
+bottom:0;
+
+}
+
+.sidemennu {
+}
+
+#sidemennubutton {
+width:60px;
+height:30px;
+position: relative;
+background-color: #1f9acf;
+border-top-left-radius: 0px !important; 
+border-top-right-radius: 0px !important;
+border-bottom-left-radius: 0px !important;
+margin-bottom: 5px;
+border-color: #1f9acf !important;
+}
+
+.settingcontent {
+
+}
+
+#sidemennubutton:hover {
+  background: #1b8aba !important;
+}
+
+.slideshow1:hover {
+
+}
+.table {
+
+@media only screen and (max-width: 800px) {
+  #unseen table td:nth-child(2),
+  #unseen table th:nth-child(2) {display: none;}
+}
+
+@media only screen and (max-width: 640px) {
+  #unseen table td:nth-child(4),
+  #unseen table th:nth-child(4),
+  #unseen table td:nth-child(7),
+  #unseen table th:nth-child(7),
+  #unseen table td:nth-child(8),
+  #unseen table th:nth-child(8) {display: none;}
+}
+
+}
+
+.custumbtn:hover{
+color: #156b90 !important;
+border-color: #156e94
+}
+
+#parent1 {
+
+}
+
+#parent2 {
+  
+}
+
+#parent3 {
+  
+}
+
+.mainfooter {
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.15) inset;
+  position: relative;
+  top: 419px;
+}
+.footer {
+ height:100px;
+ width: 100%;
+ }
+
+ .iframe-rwd  {
+position: relative;
+overflow: hidden;
+}
+
+.iframe-rwd iframe {
+position: realtive;
+top: 0;
+left: 0;
+width: 100% !important;
+max-height: 500px;
+}
+
+span1 {
+  position: relative;
+  display: block;
+  width: 130px;  /* Change this */
+  height: 130px; /* Change this */
+  overflow: hidden;
+  border: 1px solid #000;
+}
+span1 img {
+  position: absolute;
+  left: -10px; /* Change this */
+  top: -10px;  /* Change this */
+}
+
+.thumbnails {
+    
+}
+
+.thumbnails li {
+
+    width: 170px;
+    height: 170px;
+    float: none !important; /* to overwrite the default property on the bootstrap stylesheet */
+    display: inline-block;
+    *display: inline; /* ie7 support */
+    zoom: 1;
+    padding-left: 10px;
+}
+
+#popup img {
+    width: 100%;
+    height: 400px !important;
+  
+}
+
+span.roll {
+  background:center center no-repeat #fff;
+  height: 130px;
+  position: absolute;
+  text-align: center;
+  line-height: 153px;
+  width: 130px;
+  z-index: 10;
+}
+ 
+/* add the font awesome icon */
+ 
+.roll:before {
+    content: "\f00e"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #333;
+    font-size: 30px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: -7.5%;
+    left: 40%;
+}
+
+span.roll2 {
+  background:center center no-repeat #fff;
+  height: 130px;
+  position: absolute;
+  text-align: center;
+  line-height: 153px;
+  width: 130px;
+  z-index: 10;
+}
+ 
+/* add the font awesome icon */
+ 
+.roll2:before {
+    content:  "\f04b"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #333;
+    font-size: 30px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: -7.5%;
+    left: 40%;
+}
+
+
+#icon {
+ font-size: 30px !important;
+ color: #fff;
+ opacity: 1.0;
+}
+
+span.roll1 {
+  background: rgba(27,138,186,0.7);
+  height: 160px;
+  position: absolute;
+  text-align: center;
+  line-height: 20px;
+  width: 160px;
+  z-index: 10;
+  overflow: hidden; 
+  font-size: 20px;
+}
+ 
+/* add the font awesome icon */
+ 
+.roll1:before {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #333;
+    font-size: 20px;
+    padding-right: 0.5em;
+    position: absolute;
+    left: 40%;
+    overflow: hidden;  
+}
+
+.picture1 {
+   width:130px; /*width of your image*/
+   height:130px; /*height of your image*/
+}
+
+#video1 {
+  width:0; 
+  height:0;
+
+}
+
+span.picture2 {
+  height: 130px;
+  position: absolute;
+  text-align: center;
+  line-height: 153px;
+  width: 130px;
+  z-index: 10;
+}
+ 
+/* add the font awesome icon */
+ 
+.picture2:before {
+    content:  "\f04b"; 
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: white;
+    font-size: 30px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 35%;
+    left: 45%;
+}
