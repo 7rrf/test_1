@@ -4,7 +4,7 @@ production:
   database: dlrwpvbt_production
   pool: 5
   username: jdartland
-  password: \password
+  password: 
 
 development:
   adapter: postgresql
@@ -12,7 +12,7 @@ development:
   database: dlrwpvbt_development
   pool: 5
   username: jdartland
-  password: \password
+  password: 
 
 test:
   adapter: postgresql
@@ -20,5 +20,5 @@ test:
   database: dlrwpvbt_test
   pool: 5
   username: jdartland
-  password: \password
+  password: 
 
